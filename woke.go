@@ -11,21 +11,22 @@ import (
 )
 
 const content = `
-# Product discoverability built for devs
-[Visit](https://woke.build)`
+**Show WK:** [Secret infrastructure for dev teams.](https://onboardbase.com)`
 
 type wokeView struct {
 	viewport viewport.Model
 }
 
 func woke() (*wokeView, error) {
-	const width = 44
+	const width = 75
 
-	vp := viewport.New(width, 6)
+	vp := viewport.New(width, 5)
 	vp.Style = lipgloss.NewStyle().
 		BorderStyle(lipgloss.RoundedBorder()).
-		BorderForeground(lipgloss.Color("62")).
-		PaddingRight(2)
+		BorderForeground(lipgloss.Color("#3C3C3C"))
+		// Inline(true).
+		// Align(lipgloss.Left)
+    // Reverse(true).
 
 	renderer, err := glamour.NewTermRenderer(
 		glamour.WithAutoStyle(),
