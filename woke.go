@@ -11,8 +11,8 @@ import (
 )
 
 const content = `
-# New Era of Ads built by devs, for devs
-[Visit](https://woke.onboardbase.com)`
+# Product discoverability built for devs
+[Visit](https://woke.build)`
 
 type wokeView struct {
 	viewport viewport.Model
