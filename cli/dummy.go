@@ -5,6 +5,7 @@ import (
 	"fmt"
 	woke "onboardbase/woke"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -23,23 +24,23 @@ func StringPrompt(label string) string {
 
 func main() {
 	cliFunc := func() error {
-		name := StringPrompt("What is your name?")
-		fmt.Println("Hello ", name)
+		// name := StringPrompt("What is your name?")
+		// fmt.Println("Hello ", name)
 
 		// gh CLI test
-		// cmd := exec.Command("gh", "repo", "create")
+		cmd := exec.Command("gh", "repo", "create")
 
-		// // Set the command to use the current process's stdin, stdout, and stderr
-		// cmd.Stdin = os.Stdin
-		// cmd.Stdout = os.Stdout
-		// cmd.Stderr = os.Stderr
+		// Set the command to use the current process's stdin, stdout, and stderr
+		cmd.Stdin = os.Stdin
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
 
-		// // Execute the command
-		// err := cmd.Run()
-		// if err != nil {
-		// 	fmt.Println("Error running 'gh' command:", err)
-		// 	os.Exit(1)
-		// }
+		// Execute the command
+		err := cmd.Run()
+		if err != nil {
+			fmt.Println("Error running 'gh' command:", err)
+			os.Exit(1)
+		}
 		return nil
 	}
 
