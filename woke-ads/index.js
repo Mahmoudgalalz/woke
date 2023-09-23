@@ -3,16 +3,16 @@ import { Router } from 'itty-router';
 // Create a new router
 const router = Router();
 
-/*
-Our index route, a simple hello world.
-*/
+
 router.get('/ads', () => {
 	const data = [{
 		ad:"zJunior where you can find you first intern",
+		link:"https://zjunior.com",
 		topics:['jobs','software engineering']
 		},
 		{
 			ad:"onboardbase where security meets the collaboration",
+			link:"https://onboardbase.com",
 			topics:['security','collaboration','frontend','devtool']
 		}
 	]

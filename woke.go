@@ -2,6 +2,8 @@ package onboardbase
 
 import (
 	"fmt"
+	"log"
+	ad "onboardbase/woke/data"
 	"os"
 
 	"github.com/charmbracelet/bubbles/viewport"
@@ -10,15 +12,13 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-const content = `
-**Show WK:** [Secret infrastructure for dev teams.](https://onboardbase.com)`
-
 type wokeView struct {
 	viewport viewport.Model
 }
 
 func woke() (*wokeView, error) {
 	const width = 75
+	var content = `**Show WK:** `
 
 	vp := viewport.New(width, 5)
 	vp.Style = lipgloss.NewStyle().
@@ -26,7 +26,15 @@ func woke() (*wokeView, error) {
 		BorderForeground(lipgloss.Color("#3C3C3C"))
 		// Inline(true).
 		// Align(lipgloss.Left)
-    // Reverse(true).
+		// Reverse(true).
+
+	ads, err := ad.RandomAd()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	content += fmt.Sprintf("[%s](%s)", ads.Ad, ads.Link)
 
 	renderer, err := glamour.NewTermRenderer(
 		glamour.WithAutoStyle(),
