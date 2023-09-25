@@ -1,4 +1,4 @@
-module onboardbase/woke
+module github.com/mahmoudgalalz/woke
 
 go 1.20
 

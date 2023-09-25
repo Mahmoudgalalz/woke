@@ -3,10 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	woke "onboardbase/woke"
 	"os"
 	"os/exec"
 	"strings"
+
+	woke "github.com/mahmoudgalalz/woke"
 )
 
 func StringPrompt(label string) string {

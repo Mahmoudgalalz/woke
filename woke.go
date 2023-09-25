@@ -1,10 +1,11 @@
-package onboardbase
+package woke
 
 import (
 	"fmt"
 	"log"
-	ad "onboardbase/woke/data"
 	"os"
+
+	ad "github.com/mahmoudgalalz/woke/data"
 
 	"github.com/charmbracelet/bubbles/viewport"
 	tea "github.com/charmbracelet/bubbletea"
@@ -76,7 +77,6 @@ func Wrap(cliFunc func() error) {
 	}
 	fmt.Println(model.View())
 
-	// Run the CLI function
 	if err := cliFunc(); err != nil {
 		fmt.Printf("Error running the CLI: %v\n", err)
 	}
